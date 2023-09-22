@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <h2>NEW BLOG</h2>
+        <form>
+            <div class="c-form-field-container">
+                <label>Title:</label>
+                <input type="text" placeholder="Add Title">
+            </div>
+            <div class="c-form-field-container">
+                <label>Description:</label>
+                <input type="text" placeholder="Add Description">
+            </div>
+            <div class="c-form-field-container">
+                <label>Content:</label>
+                <textarea type="text" placeholder="Add Blog"></textarea>
+            </div>
+            <button class="c-create-btn">Create Blog</button>
+        </form>
+    </body>
+</html>
