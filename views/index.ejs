@@ -2,11 +2,28 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
     <body>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-        </nav>
-        <h1>Hello</h1>
-        <h2>Node js tutorials</h2>
+        <%- include('./partials/nav.ejs') %>
+        <h2>All Blogs</h2>
+        <div>
+            <% if (blogs.length) { %>
+                <% blogs.forEach(blog => { %>
+                    <a href="/blogs/<%= blog._id %>">
+                        <div class="c-blog-items">
+                            <div>
+                                <h3><%= blog.title %></h3>
+                                <p><%= blog.description %></p>
+                            </div>
+                            <div class="c-item-view-btn">
+                                <span class="material-symbols-rounded">
+                                    arrow_forward_ios
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                <% }) %>
+            <% } else { %>
+                <p>No blogs found!</p>
+            <% } %>
+        </div>
     </body>
 </html>

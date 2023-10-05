@@ -35,6 +35,7 @@ nav {
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 .c-main-title a {
@@ -81,6 +82,22 @@ a {
 
 .c-item-view-btn .material-symbols-outlined {
     font-size: 18px;
+}
+
+.c-item-delete-btn {
+    display: flex;
+    background: red;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.c-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h3, p {

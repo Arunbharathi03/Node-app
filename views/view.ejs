@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div>
+            <h2>Blog</h2>
+        </div>
+        <div>
+            <% if (blog) { %>
+                <div class="c-detail-header">
+                    <h3><%= blog.title %></h3>
+                    <button class="c-item-delete-btn" data-doc="<%= blog._id %>">
+                        <span class="material-symbols-rounded" style="font-size: 16px;">
+                            delete
+                        </span>
+                        <span>Delete</span>
+                    </button>
+                </div>
+                <h4><%= blog.description %></h3>
+                <p><%= blog.content %></h3>
+            <% } else { %>
+                <p>No blog found!</p>
+            <% } %>
+        </div>
+
+        <script>
+            const deleteBtn = document.querySelector('.c-item-delete-btn')
+            const endpoint = `/blogs/${deleteBtn.dataset.doc}`
+            console.log(endpoint);
+
+            deleteBtn.addEventListener('click', (e) => {
+                fetch (endpoint, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => window.location.href = data.redirect)
+                .catch((error) => {
+                    console.log(error);
+                })
+            })
+        </script>
+    </body>
+</html>

@@ -4,18 +4,18 @@
     <body>
         <%- include('./partials/nav.ejs') %>
         <h2>NEW BLOG</h2>
-        <form>
+        <form action="/blogs" method="POST">
             <div class="c-form-field-container">
                 <label>Title:</label>
-                <input type="text" placeholder="Add Title">
+                <input type="text" name="title" placeholder="Add Title">
             </div>
             <div class="c-form-field-container">
                 <label>Description:</label>
-                <input type="text" placeholder="Add Description">
+                <input type="text" name="description" placeholder="Add Description">
             </div>
             <div class="c-form-field-container">
                 <label>Content:</label>
-                <textarea type="text" placeholder="Add Blog"></textarea>
+                <textarea type="text" name="content" placeholder="Add Blog"></textarea>
             </div>
             <button class="c-create-btn">Create Blog</button>
         </form>
