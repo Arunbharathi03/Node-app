@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const favicon = require('serve-favicon');
 const mongoose = require('mongoose')
@@ -7,12 +8,12 @@ const blogRoutes = require('./routes/blogRoutes')
 const app = express()
 
 //connect to mongoDb
-const dbURI = 'mongodb+srv://arunbharathijp:znVzvwZJ7coNPZ9f@blogapp01.qztqnor.mongodb.net/blog-app-01?retryWrites=true&w=majority'
+const dbURI = process.env.DB_URI
 try {
     mongoose.connect(dbURI)
     
     //listen to request
-    app.listen(3000)
+    app.listen(process.env.PORT)
     console.log('connected to database');
 }
 catch (error) {
